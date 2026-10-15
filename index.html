@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Urban Legend</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="logInPage" class="w-full h-[100dvh] bg-black flex justify-center items-center">
+        <div id="card" class="w-[300px] bg-white flex flex-col border border-black rounded-lg p-5 gap-2">
+            <h1 class="text-center text-[30px] font-bold">Urban Legend</h1>
+            <form id="logInForm" class="flex flex-col gap-4">
+                <div>
+                    <label class="block pl-[5px]" for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name" class="w-full border border-black rounded-full pl-[5px]" required>
+                </div>
+                <div>
+                    <label class="block pl-[5px]" for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" class="w-full border border-black rounded-full pl-[5px]" required>
+                </div>
+                <button type="submit" id="logIn" class="w-full border border-black rounded-full mt-[10px] p-1 text-[#fff] bg-[#000]">Log in</button>
+            </form>
+            <p class="text-center mt-[5px]">No Account? <button id="goToCreate" class="text-[blue]">Create Account</button></p>
+        </div>
+    </div>
+
+    <div id="createAccPage" class="w-full h-[100dvh] bg-black flex justify-center items-center hidden">
+        <div id="card2" class="w-[300px] bg-white flex flex-col border border-black rounded-lg p-5 gap-1">
+            <h1 class="text-center text-[30px] font-bold">Create Account</h1>
+            <form id="createForm" class="flex flex-col gap-4">
+                <div>
+                    <label class="block pl-[5px]" for="name">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Name" class="w-full border border-black rounded-full pl-[5px]" required>
+                </div>
+                <div>
+                    <label class="block pl-[5px]" for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" class="w-full border border-black rounded-full pl-[5px]" required>
+                </div>
+                <div>
+                    <label class="block pl-[5px]" for="confirmPassword">Confirm Password</label>
+                    <input type="password" id="confirmPassword" name="confirmPassword" placeholder="Confirm Password" class="w-full border border-black rounded-full pl-[5px]" required>
+                </div>
+                <button type="submit" id="create" class="w-full border border-black rounded-full mt-[10px] p-1 text-[#fff] bg-[#000]">Create</button>
+            </form>
+            <p class="text-center mt-[5px]">Already Have Account? <button id="goToLogIn" class="text-[blue]">Log in</button></p>
+        </div>
+    </div>
+
+    <div id="home" class="vertical w-full h-[100dvh] flex hidden">
+        <div class="w-full h-[50dvh] flex flex-col justify-between p-[20px]">
+            <button type="button" id="logOut" class="w-[30px] h-[50px] border border-black">Out</button>
+            <button class="w-[60%] h-[100%] border border-black">Hero</button>
+            <button type="button" class="w-[50px] h-[50px] rounded-full border border-black">Heroes</button>
+        </div> 
+        <div class="w-full h-[50dvh] flex flex-col justify-between items-end p-[20px]">
+            <button id="gold" class="w-[30px] h-[100px] border border-black">$1000</button>
+            <div id="heroName" class="text-[40px] border border-black">Hero Name</div>
+            <button type="button" class="w-[60px] h-[60px] rounded-full border border-black">Leader Boards</button>
+            <div type="button" class="w-[25%] h-[90%] border border-black flex justify-evenly text-center">
+                <div class="w-[100%] h-[50%] flex flex-col justify-center">
+                    <div id="displayScore" class="font-bold text-[20px]"></div>
+                    <div>Highest Points</div>
+                </div>
+                <div class="w-[100%] h-[50%] flex flex-col justify-center">
+                    <div id="displayTime" class="font-bold text-[20px]"></div>
+                    <div>Longest Time</div>
+                </div>
+            </div>
+            <button type="button" id="start" class="w-[50px] h-[60%] border border-black">challenge</button>
+        </div>
+    </div>
+
+    <div id="box" class="box hidden">
+        <div id="player" class="player"></div>
+        <div class="battleUi w-full h-[100dvh] flex justify-between p-[20px] relative items-end z-10">
+            <div class="w-full h-[60dvh] flex items-end">
+                <div id="joyStick" class="joyStick w-[100%] h-[100%]"></div>
+            </div>
+            <div class="w-full h-[30dvh] flex flex-col justify-between">
+                <div class="flex flex-col gap-2 h-[100%]">
+                    <button id="scores" class="text-right pb-[5px] border border-black">0</button>
+                    <div class="flex h-[100%] gap-2">
+                        <button id="hp" class="w-[30px] h-[50%] border border-black text-left pt-[5px]">3</button>
+                        <button id="time" class="w-[30px] h-[50%] border border-black text-left pt-[5px]">0</button>
+                    </div>
+                </div>
+                <button type="button" id="ultimate" class="w-[100px] h-[100px] rounded-full border border-black mb-auto mt-auto">Ult</button>
+            </div>
+        </div>
+    </div>
+    <script src="declaration.js"></script>
+    <script src="done/logIn.js"></script>
+    <script src="script.js"></script>
+    <script src="done/movement.js"></script>
+</body>
+</html>
