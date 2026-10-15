@@ -14,6 +14,7 @@ joyStick.addEventListener("pointerdown", e => {
 
         const x = playerX + localX;
         const y = playerY + localY;
+        
         player.style.left = Math.max(0, Math.min(x, box.clientWidth - player.offsetWidth)) + "px";
         player.style.top = Math.max(0, Math.min(y, box.clientHeight - player.offsetHeight)) + "px";
     };

@@ -53,8 +53,6 @@ function start(){
                     box.classList.add("hidden");
                     currentHp = currentAcc["accHp"];
                     updateGame();
-                    wipeOut();
-                    enemies.length = 0;
                 }, 3000);
             }
 
@@ -159,6 +157,9 @@ function updateGame(){
     const m = Math.floor(currentAcc["accTime"] / 60);
     const s = currentAcc["accTime"] % 60;
     displayTime.textContent = m + ":" + String(s).padStart(2, "0");
+
+    wipeOut(enemies);
+    enemies.length = 0;
 }
 
 function wipeOut(list){
@@ -172,6 +173,4 @@ ultimate.addEventListener("click", () => {
     currentScore += enemies.length;
     updateScore();
     enemies.length = 0;
-
 });
-start();

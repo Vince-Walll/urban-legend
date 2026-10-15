@@ -58,4 +58,6 @@ logOut.addEventListener("click", () => {
     currentScore = 0;
     currentHp = 3;
     currentTime = 0;
+    wipeOut(enemies);
+    enemies.length = 0;
 });
