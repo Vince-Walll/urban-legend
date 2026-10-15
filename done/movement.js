@@ -6,8 +6,14 @@ joyStick.addEventListener("pointerdown", e => {
     playerY = player.offsetTop;
 
     const drag = e => {
-        const x = playerX + (e.clientX - touchX);
-        const y = playerY + (e.clientY - touchY);
+        const dx = e.clientX - touchX;
+        const dy = e.clientY - touchY;
+
+        const localX = rotated ? -dy : dx;
+        const localY = rotated ?  dx : dy;
+
+        const x = playerX + localX;
+        const y = playerY + localY;
         player.style.left = Math.max(0, Math.min(x, box.clientWidth - player.offsetWidth)) + "px";
         player.style.top = Math.max(0, Math.min(y, box.clientHeight - player.offsetHeight)) + "px";
     };

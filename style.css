@@ -58,3 +58,17 @@ body{
         top: -100px;
     }
 }
+
+@media (min-width: 800px) and (orientation: landscape) {
+    body {
+        background: #111;
+    }
+    #home, #box {
+        width: 350px;
+        height: 100dvh;
+        margin: 0 auto;
+        border: 1px solid #555;
+        background: #fff;
+        transform: rotate(-90deg);
+    }
+}

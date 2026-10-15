@@ -39,3 +39,8 @@ let timer = null;
 
 //tester
 const joyStick = document.getElementById("joyStick");
+
+//Responsive
+const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: landscape)");
+let rotated = desktopQuery.matches;
+desktopQuery.addEventListener("change", e => rotated = e.matches);
