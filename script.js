@@ -157,7 +157,7 @@ function wipeOut(list){
 
 ultimate.addEventListener("click", () => {
     wipeOut(enemies);
-    currentScore += enemies.length;
+    currentScore += (enemies.length * 5);
     updateScore();
     enemies.length = 0;
 });
