@@ -25,6 +25,8 @@ const hp = document.getElementById("hp");
 const time = document.getElementById("time");
 const heroesChanger = document.getElementById("heroesChanger");
 const heroUi = document.getElementById("heroUi");
+let enemyCount = 1;
+let pink = false;
 let touchX, touchY, playerX, playerY;
 let gameLevel = 1;
 let summonSpeed = 6000;

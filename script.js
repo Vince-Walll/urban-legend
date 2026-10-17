@@ -50,6 +50,8 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
+        newEnemy.style.background = enemyCount > 50? "url('images/enemy-bat.svg') center / contain no-repeat": "url('images/enemy.svg') center / contain no-repeat";
+        enemyCount++;
         enemies.push(newEnemy);
 
         let alreadyHit = false;
@@ -97,6 +99,7 @@ function start(){
         box.appendChild(newBullet);
         newBullet.style.left = player.offsetLeft + (player.offsetWidth / 2) + "px";
         newBullet.style.top = player.offsetTop + player.offsetHeight + "px";
+        newBullet.style.background = pink? "url('images/bullet-pink.svg') center / contain no-repeat": "url('images/bullet.svg') center / contain no-repeat";
         const anim = newBullet.animate(
             [
                 { top: player.offsetTop + player.offsetHeight + "px" },
@@ -162,7 +165,37 @@ ultimate.addEventListener("click", () => {
     enemies.length = 0;
 });
 
+let nextHero = 1;
 heroesChanger.addEventListener("click", () => {
-    player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
-    heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+    switch(nextHero){
+        case 1:
+            player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+            heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+            pink = true;
+            nextHero++;
+        break;
+        case 2:
+            player.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
+            heroUi.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
+            pink = false;
+            nextHero++;
+        break;
+        case 3:
+            player.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
+            heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
+            pink = false;
+            nextHero++;
+        break;
+        case 4:
+            player.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
+            heroUi.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
+            pink = false;
+            nextHero++;
+        break;
+        case 5:
+            player.style.background = "url('images/hero.svg') center / contain no-repeat";
+            heroUi.style.background = "url('images/hero.svg') center / contain no-repeat";
+            nextHero = 1;
+        break;
+    }
 });

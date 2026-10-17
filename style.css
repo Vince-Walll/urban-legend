@@ -126,11 +126,9 @@ body{
     background: url("images/hero.svg") center / contain no-repeat;
 }
 .enemy{
-    background: url("images/enemy.svg") center / contain no-repeat;
     border: none;
 }
 .bullet{
-    background: url("images/bullet.svg") center / contain no-repeat;
     border-radius: 0;
 }
 
