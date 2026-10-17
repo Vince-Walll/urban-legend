@@ -180,30 +180,35 @@ heroesChanger.addEventListener("click", () => {
         case 1:
             player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+            heroName.textContent = "Crizel";
             pink = true;
             nextHero++;
         break;
         case 2:
             player.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
+            heroName.textContent = "Nyx";
             pink = false;
             nextHero++;
         break;
         case 3:
             player.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
+            heroName.textContent = "Vesper";
             pink = false;
             nextHero++;
         break;
         case 4:
             player.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
+            heroName.textContent = "Warden";
             pink = false;
             nextHero++;
         break;
         case 5:
             player.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero.svg') center / contain no-repeat";
+            heroName.textContent = "Cipher";
             nextHero = 1;
         break;
     }

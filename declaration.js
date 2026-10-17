@@ -25,6 +25,7 @@ const hp = document.getElementById("hp");
 const time = document.getElementById("time");
 const heroesChanger = document.getElementById("heroesChanger");
 const heroUi = document.getElementById("heroUi");
+const heroName = document.getElementById("heroName");
 let enemyCount = 1;
 let pink = false;
 let touchX, touchY, playerX, playerY;
