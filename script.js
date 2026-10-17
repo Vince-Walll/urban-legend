@@ -4,6 +4,29 @@ startGame.onclick = () => {
     start();
 };
 
+
+
+
+function explode(enemy) {
+    const boom = document.createElement("div");
+    boom.classList.add("explosion");
+    boom.style.left = enemy.offsetLeft + "px";
+    boom.style.top = enemy.offsetTop + "px";
+    box.appendChild(boom);
+
+    const anim = boom.animate(
+        [
+            { transform: "scale(0.3)", opacity: 1 },
+            { transform: "scale(1.4)", opacity: 0 }
+        ],
+        { duration: 400, easing: "ease-out" }
+    );
+    anim.onfinish = () => boom.remove();
+}
+
+
+
+
 function start(){
     if(waves !== null && attack !== null) return;
 
@@ -95,6 +118,7 @@ function start(){
                 const ew = enemy.offsetWidth;
                 const eh = enemy.offsetHeight;
                 if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
+                    explode(enemy);
                     clearInterval(hit);
                     newBullet.remove();
                     enemies.splice(enemies.indexOf(enemy), 1);
