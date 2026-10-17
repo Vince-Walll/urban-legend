@@ -12,8 +12,13 @@ body{
 }
 
 
-.home {
-    background: #fff;
+#home {
+    background: #0e1126 url("images/home-bg.svg") center / cover no-repeat;
+    color: #fff;
+}
+
+.hero{
+    background: url("images/hero.svg") center / contain no-repeat;
 }
 .box button {
     color: #fff;
@@ -36,10 +41,10 @@ body{
 
 
     
-    animation: scrollBg 4s linear infinite;
+    animation: scrollBackground 4s linear infinite;
 }
 
-@keyframes scrollBg {
+@keyframes scrollBackground {
     from { background-position: center 0; }
     to   { background-position: center -400px; }
 }
@@ -54,7 +59,6 @@ body{
 .player{
     width: 50px;
     height: 50px;
-    background: red;
     position: absolute;
     top: 20px;
     left: calc(50% - 25px);
@@ -74,7 +78,6 @@ body{
     height: 50px;
     position: absolute;
     top: 80%;
-    border: solid 1px red;
     animation: moving 5s linear 1;
 }
 
@@ -93,12 +96,15 @@ body{
     body {
         background: #111;
     }
-    .home, .box {
+    #home, #box {
         width: 350px;
         height: 100dvh;
         margin: 0 auto;
         border: 1px solid #555;
         transform: rotate(-90deg);
+    }
+    #home {
+        background-image: url("images/home-bg-desktop.svg");
     }
 }
 
@@ -126,4 +132,102 @@ body{
 .bullet{
     background: url("images/bullet.svg") center / contain no-repeat;
     border-radius: 0;
+}
+
+.hit { filter: brightness(2) saturate(2) hue-rotate(-40deg); }
+
+#home {
+    color: #fff;
+}
+#home button,
+#home div {
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+#home {
+    color: #fff;
+}
+
+/* all home buttons: dark glass panel, light border */
+#home button, #home .disScores{
+    color: #fff;
+    background: rgba(8, 10, 28, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    backdrop-filter: blur(3px);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+#home button:hover {
+    background: rgba(40, 50, 110, 0.75);
+}
+#home button:active {
+    transform: scale(0.96);
+}
+
+/* hero name: glowing cyan, no box */
+#home #heroName {
+    color: #7ff3ff;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    border: none;
+    text-shadow: 0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000;
+}
+
+/* gold amount */
+#home #gold {
+    color: #ffd23f;
+    font-weight: 700;
+}
+
+/* main call to action */
+#home #start {
+    background: #7ff3ff;
+    color: #0e1126;
+    font-weight: 700;
+    text-shadow: none;
+}
+#home #start:hover {
+    background: #b8f8ff;
+}
+
+
+/* all battle buttons: dark glass panel, light text */
+#box button {
+    color: #fff;
+    background: rgba(8, 10, 28, 0.65);
+    border: 1px solid rgba(255, 255, 255, 0.55);
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.9);
+    font-weight: 700;
+    user-select: none;
+}
+
+/* score, HP and time are displays, not buttons to press */
+#scores, #hp, #time {
+    pointer-events: none;
+}
+
+#scores {
+    color: #ffd23f;
+    font-size: 1.2rem;
+}
+#hp {
+    color: #ff6b6b;
+}
+#hp::before {
+    content: "♥ ";
+}
+#time {
+    color: #7ff3ff;
+}
+
+/* ultimate button: glowing ring */
+#ultimate {
+    background: radial-gradient(circle, rgba(127, 243, 255, 0.35), rgba(8, 10, 28, 0.7));
+    border: 2px solid #7ff3ff;
+    color: #fff;
+    box-shadow: 0 0 14px rgba(127, 243, 255, 0.55);
+}
+#ultimate:active {
+    transform: scale(0.94);
 }

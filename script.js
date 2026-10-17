@@ -64,7 +64,7 @@ function start(){
 
             if (!alreadyHit && p.left < e.right && p.right > e.left && p.top < e.bottom && p.bottom > e.top) {
                 alreadyHit= true;
-                newEnemy.style.background = "red";
+                newEnemy.classList.add("hit");
                 currentHp -= 1;
                 updateHp();
             }
@@ -76,6 +76,8 @@ function start(){
                     box.classList.add("hidden");
                     currentHp = currentAcc["accHp"];
                     updateGame();
+                    wipeOut(enemies);
+                    enemies.length = 0;
                 }, 3000);
             }
 
@@ -87,7 +89,7 @@ function start(){
             newEnemy.remove();
         });
     
-    }, 1000);//gameSpeed - (gameLevel * 1000));
+    }, 400);//gameSpeed - (gameLevel * 1000));
 
     attack = setInterval(function(){
         const newBullet = document.createElement("div");
@@ -148,6 +150,7 @@ function stop(){
 
 function wipeOut(list){
     for(let enemy of list){
+        explode(enemy);
         enemy.remove();   
     }
 }
