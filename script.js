@@ -181,6 +181,8 @@ heroesChanger.addEventListener("click", () => {
             player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
             heroName.textContent = "Crizel";
+            heroName.style.color = "pink";
+            heroName.style.textShadow = "0 0 12px rgba(255, 127, 223, 0.6), 0 2px 4px #000";
             pink = true;
             nextHero++;
         break;
@@ -188,6 +190,8 @@ heroesChanger.addEventListener("click", () => {
             player.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroName.textContent = "Nyx";
+            heroName.style.color = "#7ff3ff";
+            heroName.style.textShadow = "0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000";
             pink = false;
             nextHero++;
         break;
