@@ -80,29 +80,9 @@ function playBoom() {
     a.play().catch(() => {});
 }
 
-// phones only allow audio after a tap, so unlock everything in the Start click
 function unlockAudio() {
     [...shootPool, ...boomPool].forEach(a => {
         a.muted = true;
         a.play().then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => {});
     });
 }
-
-
-// in the Start button handler, before start():
-//unlockAudio();
-
-// in start():
-//if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
-
-// in the attack interval, after you create the bullet:
-//playShoot();
-
-// when a bullet kills an enemy (right before enemy.remove()):
-//playBoom();
-
-// in the ultimate click handler:
-//playBoom();
-
-// in stop():
-//bgm.pause();

@@ -13,7 +13,7 @@ body{
 
 
 #home {
-    background: #0e1126 url("images/home-bg.svg") center / cover no-repeat;
+    background: url("images/home-bg-desktop.svg") center / cover no-repeat;
     color: #fff;
 }
 
@@ -103,7 +103,7 @@ body{
         border: 1px solid #555;
         transform: rotate(-90deg);
     }
-    #home {
+    #home{
         background-image: url("images/home-bg-desktop.svg");
     }
 }
@@ -135,19 +135,11 @@ body{
 
 .hit { filter: brightness(2) saturate(2) hue-rotate(-40deg); }
 
-#home {
-    color: #fff;
-}
 #home button,
 #home div {
     border-color: rgba(255, 255, 255, 0.6);
 }
 
-#home {
-    color: #fff;
-}
-
-/* all home buttons: dark glass panel, light border */
 #home button, #home .disScores{
     color: #fff;
     background: rgba(8, 10, 28, 0.65);
@@ -164,7 +156,6 @@ body{
     transform: scale(0.96);
 }
 
-/* hero name: glowing cyan, no box */
 #home #heroName {
     color: #7ff3ff;
     font-weight: 700;
@@ -173,13 +164,11 @@ body{
     text-shadow: 0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000;
 }
 
-/* gold amount */
 #home #gold {
     color: #ffd23f;
     font-weight: 700;
 }
 
-/* main call to action */
 #home #start {
     background: #7ff3ff;
     color: #0e1126;
@@ -190,8 +179,6 @@ body{
     background: #b8f8ff;
 }
 
-
-/* all battle buttons: dark glass panel, light text */
 #box button {
     color: #fff;
     background: rgba(8, 10, 28, 0.65);
@@ -201,7 +188,6 @@ body{
     user-select: none;
 }
 
-/* score, HP and time are displays, not buttons to press */
 #scores, #hp, #time {
     pointer-events: none;
 }
@@ -220,7 +206,6 @@ body{
     color: #7ff3ff;
 }
 
-/* ultimate button: glowing ring */
 #ultimate {
     background: radial-gradient(circle, rgba(127, 243, 255, 0.35), rgba(8, 10, 28, 0.7));
     border: 2px solid #7ff3ff;
@@ -231,12 +216,10 @@ body{
     transform: scale(0.94);
 }
 
-/* background for both pages */
 #logInPage, #createAccPage {
     background: #0e1126 url("images/login-bg.svg") center bottom / cover no-repeat;
 }
 
-/* dark glass card */
 #card, #card2 {
     background: rgba(8, 10, 28, 0.75);
     backdrop-filter: blur(6px);
@@ -245,14 +228,12 @@ body{
     color: #fff;
 }
 
-/* titles */
 #card h1, #card2 h1 {
     color: #7ff3ff;
     letter-spacing: 0.04em;
     text-shadow: 0 0 14px rgba(127, 243, 255, 0.55), 0 2px 4px #000;
 }
 
-/* labels and small text */
 #card label, #card2 label {
     color: #cfe9ff;
     font-size: 0.9rem;
@@ -261,7 +242,6 @@ body{
     color: #cfe9ff;
 }
 
-/* inputs */
 #card input, #card2 input {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -278,13 +258,11 @@ body{
     box-shadow: 0 0 0 3px rgba(127, 243, 255, 0.25);
 }
 
-/* stop the browser's white autofill background */
 #card input:-webkit-autofill, #card2 input:-webkit-autofill {
     -webkit-text-fill-color: #fff;
     box-shadow: 0 0 0 100px #14172f inset;
 }
 
-/* main buttons */
 #logIn, #create {
     background: #7ff3ff;
     color: #0e1126;
@@ -301,7 +279,6 @@ body{
     transform: scale(0.97);
 }
 
-/* switch links */
 #goToCreate, #goToLogIn {
     color: #7ff3ff;
     font-weight: 600;
