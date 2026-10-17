@@ -48,3 +48,60 @@ const joyStick = document.getElementById("joyStick");
 const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: landscape)");
 let rotated = desktopQuery.matches;
 desktopQuery.addEventListener("change", e => rotated = e.matches);
+
+
+const bgm = new Audio("sounds/bgm.wav");
+bgm.loop = true;
+bgm.volume = 0.35;
+
+// small pools so rapid sounds can overlap
+const shootPool = Array.from({ length: 4 }, () => new Audio("sounds/shoot.wav"));
+const boomPool  = Array.from({ length: 4 }, () => new Audio("sounds/explosion.wav"));
+let shootI = 0, boomI = 0;
+let soundOn = true;
+
+
+
+
+function playShoot() {
+    if (!soundOn) return;
+    const a = shootPool[shootI++ % shootPool.length];
+    a.currentTime = 0;
+    a.volume = 0.25;
+    a.play().catch(() => {});
+}
+
+function playBoom() {
+    if (!soundOn) return;
+    const a = boomPool[boomI++ % boomPool.length];
+    a.currentTime = 0;
+    a.volume = 0.5;
+    a.play().catch(() => {});
+}
+
+// phones only allow audio after a tap, so unlock everything in the Start click
+function unlockAudio() {
+    [...shootPool, ...boomPool].forEach(a => {
+        a.muted = true;
+        a.play().then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => {});
+    });
+}
+
+
+// in the Start button handler, before start():
+//unlockAudio();
+
+// in start():
+//if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
+
+// in the attack interval, after you create the bullet:
+//playShoot();
+
+// when a bullet kills an enemy (right before enemy.remove()):
+//playBoom();
+
+// in the ultimate click handler:
+//playBoom();
+
+// in stop():
+//bgm.pause();

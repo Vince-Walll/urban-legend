@@ -1,6 +1,7 @@
 startGame.onclick = () => {
     home.classList.add("hidden");
     box.classList.remove("hidden");
+    unlockAudio();
     start();
 };
 
@@ -28,6 +29,7 @@ function explode(enemy) {
 
 
 function start(){
+    if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
     if(waves !== null && attack !== null) return;
 
     player.style.top = "20px";
@@ -82,6 +84,7 @@ function start(){
                     updateGame();
                     wipeOut(enemies);
                     enemies.length = 0;
+                    enemyCount = 0;
                 }, 3000);
             }
 
@@ -96,6 +99,7 @@ function start(){
     }, 400);//gameSpeed - (gameLevel * 1000));
 
     attack = setInterval(function(){
+        playShoot();
         const newBullet = document.createElement("div");
         newBullet.classList.add("bullet");
         box.appendChild(newBullet);
@@ -125,6 +129,7 @@ function start(){
                 const ew = enemy.offsetWidth;
                 const eh = enemy.offsetHeight;
                 if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
+                    playBoom();
                     explode(enemy);
                     clearInterval(hit);
                     newBullet.remove();
@@ -146,6 +151,7 @@ function start(){
 }
 
 function stop(){
+    bgm.pause();
     clearInterval(timer);
     clearInterval(waves);
     clearInterval(attack);
@@ -161,6 +167,7 @@ function wipeOut(list){
 }
 
 ultimate.addEventListener("click", () => {
+    playBoom();
     wipeOut(enemies);
     currentScore += (enemies.length * 5);
     updateScore();
