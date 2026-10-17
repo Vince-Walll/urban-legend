@@ -231,3 +231,83 @@ body{
 #ultimate:active {
     transform: scale(0.94);
 }
+
+/* background for both pages */
+#logInPage, #createAccPage {
+    background: #0e1126 url("images/login-bg.svg") center bottom / cover no-repeat;
+}
+
+/* dark glass card */
+#card, #card2 {
+    background: rgba(8, 10, 28, 0.75);
+    backdrop-filter: blur(6px);
+    border: 1px solid rgba(127, 243, 255, 0.35);
+    box-shadow: 0 0 30px rgba(127, 243, 255, 0.15), 0 10px 40px rgba(0, 0, 0, 0.6);
+    color: #fff;
+}
+
+/* titles */
+#card h1, #card2 h1 {
+    color: #7ff3ff;
+    letter-spacing: 0.04em;
+    text-shadow: 0 0 14px rgba(127, 243, 255, 0.55), 0 2px 4px #000;
+}
+
+/* labels and small text */
+#card label, #card2 label {
+    color: #cfe9ff;
+    font-size: 0.9rem;
+}
+#card p, #card2 p {
+    color: #cfe9ff;
+}
+
+/* inputs */
+#card input, #card2 input {
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: #fff;
+    padding: 7px 14px;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+}
+#card input::placeholder, #card2 input::placeholder {
+    color: rgba(255, 255, 255, 0.45);
+}
+#card input:focus, #card2 input:focus {
+    border-color: #7ff3ff;
+    box-shadow: 0 0 0 3px rgba(127, 243, 255, 0.25);
+}
+
+/* stop the browser's white autofill background */
+#card input:-webkit-autofill, #card2 input:-webkit-autofill {
+    -webkit-text-fill-color: #fff;
+    box-shadow: 0 0 0 100px #14172f inset;
+}
+
+/* main buttons */
+#logIn, #create {
+    background: #7ff3ff;
+    color: #0e1126;
+    font-weight: 700;
+    border: none;
+    padding: 8px;
+    cursor: pointer;
+    transition: background 0.15s, transform 0.1s;
+}
+#logIn:hover, #create:hover {
+    background: #b8f8ff;
+}
+#logIn:active, #create:active {
+    transform: scale(0.97);
+}
+
+/* switch links */
+#goToCreate, #goToLogIn {
+    color: #7ff3ff;
+    font-weight: 600;
+    cursor: pointer;
+}
+#goToCreate:hover, #goToLogIn:hover {
+    text-decoration: underline;
+}
