@@ -50,8 +50,10 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
-        newEnemy.style.background = enemyCount > 50? "url('images/enemy-bat.svg') center / contain no-repeat": "url('images/enemy.svg') center / contain no-repeat";
-        enemyCount++;
+        if(enemyCount > 40){
+            newEnemy.style.background = enemyCount > 80 ? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
+            enemyCount++;
+        }
         enemies.push(newEnemy);
 
         let alreadyHit = false;
