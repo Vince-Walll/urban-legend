@@ -161,3 +161,8 @@ ultimate.addEventListener("click", () => {
     updateScore();
     enemies.length = 0;
 });
+
+heroesChanger.addEventListener("click", () => {
+    player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+    heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+});

@@ -35,7 +35,4 @@ function updateGame(){
     const m = Math.floor(currentAcc["accTime"] / 60);
     const s = currentAcc["accTime"] % 60;
     displayTime.textContent = m + ":" + String(s).padStart(2, "0");
-
-    wipeOut(enemies);
-    enemies.length = 0;
 }

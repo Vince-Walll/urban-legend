@@ -23,6 +23,8 @@ const ultimate = document.getElementById("ultimate");
 const scores = document.getElementById("scores");
 const hp = document.getElementById("hp");
 const time = document.getElementById("time");
+const heroesChanger = document.getElementById("heroesChanger");
+const heroUi = document.getElementById("heroUi");
 let touchX, touchY, playerX, playerY;
 let gameLevel = 1;
 let summonSpeed = 6000;
