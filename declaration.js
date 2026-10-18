@@ -40,7 +40,7 @@ let heroDamage = 5;
 let heroAttackSpeed = 500;
 let attackSpeed = heroAttackSpeed;
 let damage = heroDamage;
-let heroHp = 3;
+let heroHp = 0;
 let heroBullet = "cipher";
 
 

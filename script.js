@@ -114,8 +114,8 @@ function start(){
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
         if(enemyCount > 30){
             newEnemy.style.background = enemyCount > 50? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 100? 200 : 50;
-            enemyPoints = enemyCount > 50? 20: 10;
+            enemyHp = enemyCount > 100? 500 : 50;
+            enemyPoints = enemyCount > 100? 20: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -127,6 +127,10 @@ function start(){
                 clearInterval(playerHit);
                 return;
             }
+            if(currentHp <= 0){
+                clearInterval(playerHit);
+                return;
+            }
             const p = player.getBoundingClientRect();
             const e = newEnemy.getBoundingClientRect();
 
@@ -135,18 +139,17 @@ function start(){
                 newEnemy.classList.add("hit");
                 currentHp -= 1;
                 updateHp();
-            }
-
-            if(currentHp <= 0){
-                stop();
-                updateGame();
-                setTimeout(() => {
-                    wipeOut(enemies);
-                    enemies.length = 0;
-                    home.classList.remove("hidden");
-                    box.classList.add("hidden");
-                }, 3000);
-            }
+                if(currentHp <= 0){
+                    stop();
+                    updateGame();
+                    setTimeout(() => {
+                        wipeOut(enemies);
+                        enemies.length = 0;
+                        home.classList.remove("hidden");
+                        box.classList.add("hidden");
+                    }, 3000);
+                }
+            }   
         }, 16);
 
         newEnemy.addEventListener("animationend", () => {
@@ -212,11 +215,12 @@ function start(){
                 clearInterval(playerBuff);
                 newOrb.remove();
             }
+
         }, 16);
 
         newOrb.addEventListener("animationend", () => {
             clearInterval(playerBuff);
-            newOrb.remove;
+            newOrb.remove();
         });
 
     }, 5000);
