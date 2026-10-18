@@ -36,8 +36,10 @@ let touchX, touchY, playerX, playerY;
 let gameLevel = 1;
 let summonSpeed = 6000;
 
-let attackSpeed = 500;
-let damage = 5;
+let heroDamage = 5;
+let heroAttackSpeed = 500;
+let attackSpeed = heroAttackSpeed;
+let damage = heroDamage;
 let heroHp = 3;
 
 
@@ -53,6 +55,7 @@ let enemyPoints = 5;
 let waves = null;
 let attack = null;
 let timer = null;
+let orbs = null;
 
 //Responsive part
 const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: landscape)");

@@ -47,8 +47,8 @@ heroesChanger.addEventListener("click", () => {
             heroName.style.textShadow = "0 0 12px rgba(255, 127, 223, 0.6), 0 2px 4px #000";
             pink = true;
             heroHp = -1;
-            attackSpeed = 200;
-            damage = 2;
+            heroAttackSpeed = 200;
+            heroDamage = 2;
             nextHero++;
         break;
         case 2:
@@ -59,8 +59,8 @@ heroesChanger.addEventListener("click", () => {
             heroName.style.textShadow = "0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000";
             pink = false;
             heroHp = -2;
-            attackSpeed = 400;
-            damage = 10;
+            heroAttackSpeed = 400;
+            heroDamage = 10;
             nextHero++;
         break;
         case 3:
@@ -68,8 +68,8 @@ heroesChanger.addEventListener("click", () => {
             heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroName.textContent = "Vesper";
             heroHp = 0;
-            attackSpeed = 500;
-            damage = 5;
+            heroAttackSpeed = 500;
+            heroDamage = 5;
             nextHero++;
         break;
         case 4:

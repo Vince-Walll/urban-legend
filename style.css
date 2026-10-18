@@ -71,8 +71,15 @@ body{
     height: 50px;
     background: url('images/enemy.svg') center / contain no-repeat;
     position: absolute;
-    top: 80%;
+    top: 100%;
     animation: moving 5s linear 1;
+}
+.orb{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 100%;
+    animation: moving 3s linear 1;
 }
 @keyframes moving{
     from{
@@ -136,7 +143,6 @@ body{
     font-weight: 700;
     user-select: none;
 }
-
 #scores, #hp, #time {
     pointer-events: none;
 }

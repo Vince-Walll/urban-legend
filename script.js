@@ -22,16 +22,89 @@ function explode(enemy) {
     anim.onfinish = () => boom.remove();
 }
 
+
+
+
+function attacking(){
+        playShoot();
+        const newBullet = document.createElement("div");
+        newBullet.classList.add("bullet");
+        box.appendChild(newBullet);
+        newBullet.style.left = player.offsetLeft + (player.offsetWidth / 2) + "px";
+        newBullet.style.top = player.offsetTop + player.offsetHeight + "px";
+        newBullet.style.background = pink? "url('images/bullet-pink.svg') center / contain no-repeat": "url('images/bullet.svg') center / contain no-repeat";
+        const anim = newBullet.animate(
+            [
+                { top: player.offsetTop + player.offsetHeight + "px" },
+                { top: box.clientHeight + "px" }
+            ],
+            {
+                duration: 1000,
+                iterations: 1,
+                easing: "linear"
+            }
+        );
+
+        const hit = setInterval(function () {
+            const bl = newBullet.offsetLeft;
+            const bt = newBullet.offsetTop;
+            const bw = newBullet.offsetWidth;
+            const bh = newBullet.offsetHeight;
+            for (const enemy of enemies) {
+                const el = enemy.offsetLeft;
+                const et = enemy.offsetTop;
+                const ew = enemy.offsetWidth;
+                const eh = enemy.offsetHeight;
+                if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
+                    enemy.hp -= damage;
+                    enemy.classList.add("hit");
+                    setTimeout(() => {
+                        enemy.classList.remove("hit");
+                    }, 100);
+                    clearInterval(hit);
+                    newBullet.remove();
+
+                    if(enemy.hp <= 0){
+                        playBoom();
+                        explode(enemy);
+                        enemies.splice(enemies.indexOf(enemy), 1);
+                        enemy.remove();
+                        currentScore += enemyPoints;
+                        updateScore();
+                        enemyCount++;
+                        break;
+                    }
+                }
+            }
+        }, 16);
+        
+        anim.onfinish = () => {
+            clearInterval(hit);
+            newBullet.remove(); 
+        };
+
+    }
+
+
+
+
+
+
+
 function start(){
     if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
-    if(waves !== null && attack !== null) return;
+    if(waves !== null) return;
 
     player.style.top = "20px";
     player.style.left = "calc(50% - 25px)";
 
     currentScore = 0;
-    currentHp = heroHp + currentAcc["accHp"];
     currentTime = 0;
+
+    currentHp = heroHp + currentAcc["accHp"];
+    damage = heroDamage;
+    attackSpeed = heroAttackSpeed;
+
     scores.textContent = currentScore;
     hp.textContent = currentHp;
     time.textContent = currentTime;
@@ -94,65 +167,63 @@ function start(){
     
     }, 500);//gameSpeed - (gameLevel * 1000));
 
-    attack = setInterval(function(){
-        playShoot();
-        const newBullet = document.createElement("div");
-        newBullet.classList.add("bullet");
-        box.appendChild(newBullet);
-        newBullet.style.left = player.offsetLeft + (player.offsetWidth / 2) + "px";
-        newBullet.style.top = player.offsetTop + player.offsetHeight + "px";
-        newBullet.style.background = pink? "url('images/bullet-pink.svg') center / contain no-repeat": "url('images/bullet.svg') center / contain no-repeat";
-        const anim = newBullet.animate(
-            [
-                { top: player.offsetTop + player.offsetHeight + "px" },
-                { top: box.clientHeight + "px" }
-            ],
-            {
-                duration: 1000,
-                iterations: 1,
-                easing: "linear"
-            }
-        );
+    attack = setInterval(attacking, attackSpeed);
 
-        const hit = setInterval(function () {
-            const bl = newBullet.offsetLeft;
-            const bt = newBullet.offsetTop;
-            const bw = newBullet.offsetWidth;
-            const bh = newBullet.offsetHeight;
-            for (const enemy of enemies) {
-                const el = enemy.offsetLeft;
-                const et = enemy.offsetTop;
-                const ew = enemy.offsetWidth;
-                const eh = enemy.offsetHeight;
-                if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
-                    enemy.hp -= damage;
-                    enemy.classList.add("hit");
-                    setTimeout(() => {
-                        enemy.classList.remove("hit");
-                    }, 100);
-                    clearInterval(hit);
-                    newBullet.remove();
+    orbs = setInterval(function(){
+        const newOrb = document.createElement("div");
+        newOrb.classList.add("orb");
+        let rand = Math.ceil(Math.random() * 3);
+        switch(rand){
+            case 1:
+                newOrb.style.background = "url('images/orb-heal.svg') center / contain no-repeat";
+                break;
+            case 2:
+                newOrb.style.background = "url('images/orb-power.svg') center / contain no-repeat";
+                break;
+            case 3:
+                newOrb.style.background = "url('images/orb-speed.svg') center / contain no-repeat";
+                break;
+        }
+        box.appendChild(newOrb);
+        newOrb.style.left = Math.random() * (box.clientWidth - newOrb.offsetWidth) + "px";
 
-                    if(enemy.hp <= 0){
-                        playBoom();
-                        explode(enemy);
-                        enemies.splice(enemies.indexOf(enemy), 1);
-                        enemy.remove();
-                        currentScore += enemyPoints;
-                        updateScore();
-                        enemyCount++;
+        let alreadybuff = false;
+
+        const playerBuff = setInterval(function(){
+            const p = player.getBoundingClientRect();
+            const o = newOrb.getBoundingClientRect();
+
+            if(!alreadybuff && p.left < o.right && p.right > o.left && p.top < o.bottom && p.bottom > o.top){
+                alreadybuff = true;
+                switch(rand){
+                    case 1:
+                        currentHp += 1;
+                        updateHp();
                         break;
-                    }
+                    case 2:
+                        damage += 2;
+                    break;
+                    case 3:
+                        if(attackSpeed >= 100){
+                            attackSpeed -= 25;
+                            clearInterval(attack);
+                            attack = setInterval(attacking, attackSpeed);
+                        }else{
+                            damage += 2;
+                        }
+                    break;
                 }
+                clearInterval(playerBuff);
+                newOrb.remove();
             }
-        }, 16);
-        
-        anim.onfinish = () => {
-            clearInterval(hit);
-            newBullet.remove(); 
-        };
 
-    }, attackSpeed);
+            newOrb.addEventListener("animationend", () => {
+                clearInterval(playerBuff);
+                newOrb.remove;
+            });
+        }, 16);
+
+    }, 1000);
 }
 
 function stop(){
@@ -160,8 +231,11 @@ function stop(){
     clearInterval(timer);
     clearInterval(waves);
     clearInterval(attack);
+    clearInterval(orbs);
     waves = null;
     attack = null;
+    timer = null;
+    orbs = null;
 }
 
 function wipeOut(list){
