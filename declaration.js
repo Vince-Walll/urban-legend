@@ -19,6 +19,7 @@ const displayTime = document.getElementById("displayTime");
 //Actual Game
 const box = document.getElementById("box");
 const player = document.getElementById("player");
+const appearance = document.getElementById("appearance");
 const ultimate = document.getElementById("ultimate");
 const scores = document.getElementById("scores");
 const hp = document.getElementById("hp");

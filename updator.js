@@ -38,7 +38,7 @@ function updateGame(){
 heroesChanger.addEventListener("click", () => {
     switch(nextHero){
         case 1:
-            player.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
+            appearance.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-pink.svg') center / contain no-repeat";
             heroName.textContent = "Crizel";
             heroName.style.color = "pink";
@@ -51,7 +51,7 @@ heroesChanger.addEventListener("click", () => {
             nextHero++;
         break;
         case 2:
-            player.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
+            appearance.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroName.textContent = "Nyx";
             heroName.style.color = "#722bc4";
@@ -64,7 +64,7 @@ heroesChanger.addEventListener("click", () => {
             nextHero++;
         break;
         case 3:
-            player.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
+            appearance.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroName.textContent = "Vesper";
             heroName.style.color = "#d65a29";
@@ -75,7 +75,7 @@ heroesChanger.addEventListener("click", () => {
             nextHero++;
         break;
         case 4:
-            player.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
+            appearance.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroName.textContent = "Warden";
             heroName.style.color = "#18ad5b";
@@ -86,7 +86,7 @@ heroesChanger.addEventListener("click", () => {
             nextHero++;
         break;
         case 5:
-            player.style.background = "url('images/hero.svg') center / contain no-repeat";
+            appearance.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroName.textContent = "Cipher";
             heroName.style.color = "#7ff3ff";
