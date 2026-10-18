@@ -30,23 +30,23 @@ A mobile-first, top-down shooter that runs in the browser. Pick a hero, drag to 
 
 ### Heroes
 
-| Hero | Starting HP | Damage | Time between shots |
-|---|---|---|---|
-| Cipher | 3 | 5 | 500 ms |
-| Crizel (pink) | 2 | 2 | 250 ms |
-| Nyx | 1 | 10 | 500 ms |
-| Vesper | 3 | 5 | 500 ms |
-| Warden | 10 | 10 | 700 ms |
+| Hero   | Starting HP | Damage | Time between shots |
+| ------ | ----------- | ------ | ------------------ |
+| Cipher | 3           | 5      | 500 ms             |
+| Crizel | 2           | 2      | 250 ms             |
+| Nyx    | 1           | 10     | 500 ms             |
+| Vesper | 3           | 5      | 500 ms             |
+| Warden | 10          | 10     | 700 ms             |
 
 Starting HP is the account's base HP (3) plus the hero's bonus or penalty.
 
 ### Orbs
 
-| Orb | Effect |
-|---|---|
-| Green heart | +1 HP |
-| Red sword | +2 damage |
-| Yellow bolt | Faster shooting (once it can't go faster, it adds +2 damage instead) |
+| Orb         | Effect                                                                                     |
+| ----------- | ------------------------------------------------------------------------------------------ |
+| Green heart | +1 HP                                                                                      |
+| Red sword   | +2 damage                                                                                  |
+| Yellow bolt | Faster shooting (once it can't go faster, it adds +2 damage instead)                       |
 | Bomb (rare) | The next enemy to touch you triggers an explosion that clears the screen and awards points |
 
 ## Built with

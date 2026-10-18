@@ -30,7 +30,6 @@ const heroName = document.getElementById("heroName");
 const joyStick = document.getElementById("joyStick");
 let nextHero = 1;
 
-let pink = false;
 let touchX, touchY, playerX, playerY;
 
 
