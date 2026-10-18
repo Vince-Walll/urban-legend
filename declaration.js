@@ -32,13 +32,21 @@ let nextHero = 1;
 let enemyCount = 1;
 let pink = false;
 let touchX, touchY, playerX, playerY;
+
+
 let gameLevel = 1;
 let summonSpeed = 6000;
-let attackSpeed = 1000;
+
+let attackSpeed = 500;
+let damage = 5;
+let heroHp = 3;
+
+
 let currentScore = 0;
-let currentHp = 3;
+let currentHp = heroHp;
 let currentTime = 0;
 
+let enemyHp = 10;
 let enemies = [];
 
 let waves = null;

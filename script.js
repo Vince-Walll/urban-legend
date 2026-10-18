@@ -36,7 +36,7 @@ function start(){
     player.style.left = "calc(50% - 25px)";
 
     currentScore = 0;
-    currentHp = currentAcc["accHp"];
+    currentHp = heroHp + currentAcc["accHp"];
     currentTime = 0;
     scores.textContent = currentScore;
     hp.textContent = currentHp;
@@ -57,6 +57,7 @@ function start(){
         }
         enemyCount++;
         enemies.push(newEnemy);
+        newEnemy.hp = enemyHp;
 
         let alreadyHit = false;
 
@@ -129,25 +130,33 @@ function start(){
                 const ew = enemy.offsetWidth;
                 const eh = enemy.offsetHeight;
                 if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
-                    playBoom();
-                    explode(enemy);
+                    enemy.hp -= damage;
+                    enemy.classList.add("hit");
+                    setTimeout(() => {
+                        enemy.classList.remove("hit");
+                    }, 100);
                     clearInterval(hit);
                     newBullet.remove();
-                    enemies.splice(enemies.indexOf(enemy), 1);
-                    enemy.remove();
-                    currentScore += 5;
-                    updateScore();
-                    break;
+
+                    if(enemy.hp <= 0){
+                        playBoom();
+                        explode(enemy);
+                        enemies.splice(enemies.indexOf(enemy), 1);
+                        enemy.remove();
+                        currentScore += 5;
+                        updateScore();
+                        break;
+                    }
                 }
             }
         }, 16);
-
+        
         anim.onfinish = () => {
             clearInterval(hit);
             newBullet.remove(); 
         };
 
-    }, 500);//attackSpeed);
+    }, attackSpeed);
 }
 
 function stop(){

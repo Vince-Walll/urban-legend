@@ -46,6 +46,9 @@ heroesChanger.addEventListener("click", () => {
             heroName.style.color = "pink";
             heroName.style.textShadow = "0 0 12px rgba(255, 127, 223, 0.6), 0 2px 4px #000";
             pink = true;
+            heroHp = -1;
+            attackSpeed = 200;
+            damage = 2;
             nextHero++;
         break;
         case 2:
@@ -55,26 +58,29 @@ heroesChanger.addEventListener("click", () => {
             heroName.style.color = "#7ff3ff";
             heroName.style.textShadow = "0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000";
             pink = false;
+            heroHp = 0;
+            attackSpeed = 500;
+            damage = 5;
             nextHero++;
         break;
         case 3:
             player.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroName.textContent = "Vesper";
-            pink = false;
             nextHero++;
         break;
         case 4:
             player.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroName.textContent = "Warden";
-            pink = false;
+            heroHp = 7;
             nextHero++;
         break;
         case 5:
             player.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroName.textContent = "Cipher";
+            heroHp = 0;
             nextHero = 1;
         break;
     }
