@@ -43,6 +43,7 @@ let damage = heroDamage;
 let heroHp = 0;
 let heroBullet = "cipher";
 let explosionOrb = false;
+let pink = false;
 
 
 let currentScore = 0;
@@ -69,28 +70,45 @@ const bgm = new Audio("sounds/bgm.wav");
 bgm.loop = true;
 bgm.volume = 0.35;
 
-const shootPool = Array.from({ length: 4 }, () => new Audio("sounds/shoot.wav"));
-const boomPool  = Array.from({ length: 4 }, () => new Audio("sounds/explosion.wav"));
-let shootI = 0, boomI = 0;
 let soundOn = true;
+let lastBoom = 0;
+
+function makePool(src) {
+    return Array.from({ length: 4 }, () => new Audio(src));
+}
+
+const sfx = {
+    cipher: { shoot: makePool("sounds/shoot.wav"),        boom: makePool("sounds/explosion.wav"),        si: 0, bi: 0 },
+    crizel: { shoot: makePool("sounds/shoot-crizel.wav"), boom: makePool("sounds/explosion-crizel.wav"), si: 0, bi: 0 }
+};
 
 function playShoot() {
     if (!soundOn) return;
-    const a = shootPool[shootI++ % shootPool.length];
+    const s = sfx[heroBullet] || sfx.cipher;
+    const a = s.shoot[s.si++ % s.shoot.length];
     a.currentTime = 0;
     a.volume = 0.25;
     a.play().catch(() => {});
 }
-function playBoom() {
+
+function playBoom(volume = 0.5, force = false) {
     if (!soundOn) return;
-    const a = boomPool[boomI++ % boomPool.length];
+    const now = performance.now();
+    if (!force && now - lastBoom < 90) return;
+    lastBoom = now;
+
+    const s = sfx[heroBullet] || sfx.cipher;
+    const a = s.boom[s.bi++ % s.boom.length];
     a.currentTime = 0;
-    a.volume = 0.5;
+    a.volume = volume;
     a.play().catch(() => {});
 }
+
 function unlockAudio() {
-    [...shootPool, ...boomPool].forEach(a => {
-        a.muted = true;
-        a.play().then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => {});
+    Object.values(sfx).forEach(s => {
+        [...s.shoot, ...s.boom].forEach(a => {
+            a.muted = true;
+            a.play().then(() => { a.pause(); a.currentTime = 0; a.muted = false; }).catch(() => {});
+        });
     });
 }

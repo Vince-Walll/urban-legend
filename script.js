@@ -10,6 +10,7 @@ function explode(enemy) {
     boom.classList.add("explosion");
     boom.style.left = enemy.offsetLeft + "px";
     boom.style.top = enemy.offsetTop + "px";
+    boom.style.background = pink? "url('images/explosion-pink.svg') center / contain no-repeat": "url('images/explosion.svg') center / contain no-repeat";
     box.appendChild(boom);
 
     const anim = boom.animate(
