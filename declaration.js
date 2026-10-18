@@ -29,7 +29,6 @@ const heroName = document.getElementById("heroName");
 const joyStick = document.getElementById("joyStick");
 let nextHero = 1;
 
-let enemyCount = 1;
 let pink = false;
 let touchX, touchY, playerX, playerY;
 
@@ -48,6 +47,8 @@ let currentTime = 0;
 
 let enemyHp = 10;
 let enemies = [];
+let enemyCount = 0;
+let enemyPoints = 5;
 
 let waves = null;
 let attack = null;

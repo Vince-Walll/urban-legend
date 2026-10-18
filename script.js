@@ -52,10 +52,11 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
-        if(enemyCount > 40){
-            newEnemy.style.background = enemyCount > 80 ? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat"; 
+        if(enemyCount > 10){
+            newEnemy.style.background = enemyCount > 20? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
+            enemyHp = enemyCount > 20? 30 : 20;
+            enemyPoints = enemyCount > 20? 15: 10;
         }
-        enemyCount++;
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
 
@@ -97,7 +98,7 @@ function start(){
             newEnemy.remove();
         });
     
-    }, 400);//gameSpeed - (gameLevel * 1000));
+    }, 500);//gameSpeed - (gameLevel * 1000));
 
     attack = setInterval(function(){
         playShoot();
@@ -143,8 +144,9 @@ function start(){
                         explode(enemy);
                         enemies.splice(enemies.indexOf(enemy), 1);
                         enemy.remove();
-                        currentScore += 5;
+                        currentScore += enemyPoints;
                         updateScore();
+                        enemyCount++;
                         break;
                     }
                 }
@@ -178,7 +180,7 @@ function wipeOut(list){
 ultimate.addEventListener("click", () => {
     playBoom();
     wipeOut(enemies);
-    currentScore += (enemies.length * 5);
+    currentScore += (enemies.length * enemyPoints);
     updateScore();
     enemies.length = 0;
 });
