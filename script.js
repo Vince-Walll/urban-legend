@@ -87,7 +87,7 @@ function start(){
     if(waves !== null) return;
 
     player.style.top = "20px";
-    player.style.left = "calc(50% - 25px)";
+    player.style.left = "calc(50% - 15px)";
 
     currentScore = 0;
     currentTime = 0;

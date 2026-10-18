@@ -51,15 +51,22 @@ body{
     user-select: none;
 }
 .player{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 20px;
-    left: calc(50% - 25px);
+    left: calc(50% - 15px);
     transition: left 0.1s, top 0.1s;
 }
-.appearance{
+.appearance {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
     background: url("images/hero.svg") center / contain no-repeat;
+    pointer-events: none;
 }
 .bullet{
     width: 10px;
@@ -169,6 +176,8 @@ body{
 #card, #card2 {
     backdrop-filter: blur(6px);
     box-shadow: 0 0 30px rgba(127, 243, 255, 0.15), 0 10px 40px rgba(0, 0, 0, 0.6);
+    background: rgba(8, 10, 28, 0.75);
+    border: 1px solid rgba(127, 243, 255, 0.35);
 }
 
 #card h1, #card2 h1 {
