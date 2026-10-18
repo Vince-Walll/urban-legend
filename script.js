@@ -115,9 +115,9 @@ function start(){
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
         if(enemyCount > 50){
-            newEnemy.style.background = enemyCount > 50? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 150? 1000 : 100;
-            enemyPoints = enemyCount > 150? 50: 10;
+            newEnemy.style.background = enemyCount > 200? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
+            enemyHp = enemyCount > 200? 1000 : 100;
+            enemyPoints = enemyCount > 200? 100: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -280,6 +280,7 @@ function stop(){
 }
 
 function wipeOut(list){
+    playBoom();
     for(let enemy of list){
         explode(enemy);
         enemy.remove();   
@@ -287,7 +288,6 @@ function wipeOut(list){
 }
 
 ultimate.addEventListener("click", () => {
-    playBoom();
     wipeOut(enemies);
     currentScore += (enemies.length * enemyPoints);
     enemyCount += enemies.length;
