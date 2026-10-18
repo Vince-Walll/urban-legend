@@ -92,6 +92,7 @@ function start(){
     currentScore = 0;
     currentTime = 0;
     enemyCount = 0;
+    enemyHp = 10;
 
     currentHp = heroHp + currentAcc["accHp"];
     damage = heroDamage;
