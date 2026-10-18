@@ -45,6 +45,7 @@ heroesChanger.addEventListener("click", () => {
             heroName.textContent = "Crizel";
             heroName.style.color = "pink";
             heroName.style.textShadow = "0 0 12px rgba(255, 127, 223, 0.6), 0 2px 4px #000";
+            heroBullet = "crizel";
             pink = true;
             heroHp = -1;
             heroAttackSpeed = 200;
@@ -55,11 +56,12 @@ heroesChanger.addEventListener("click", () => {
             player.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-nyx.svg') center / contain no-repeat";
             heroName.textContent = "Nyx";
-            heroName.style.color = "#7ff3ff";
-            heroName.style.textShadow = "0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000";
+            heroName.style.color = "#722bc4";
+            heroName.style.textShadow = "0 0 12px rgba(183, 94, 224, 0.6), 0 2px 4px #000";
+            heroBullet = "cipher"
             pink = false;
             heroHp = -2;
-            heroAttackSpeed = 400;
+            heroAttackSpeed = 500;
             heroDamage = 10;
             nextHero++;
         break;
@@ -67,6 +69,8 @@ heroesChanger.addEventListener("click", () => {
             player.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-vesper.svg') center / contain no-repeat";
             heroName.textContent = "Vesper";
+            heroName.style.color = "#d65a29";
+            heroName.style.textShadow = "0 0 12px rgba(196, 134, 42, 0.6), 0 2px 4px #000";
             heroHp = 0;
             heroAttackSpeed = 500;
             heroDamage = 5;
@@ -76,13 +80,20 @@ heroesChanger.addEventListener("click", () => {
             player.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero-warden.svg') center / contain no-repeat";
             heroName.textContent = "Warden";
+            heroName.style.color = "#18ad5b";
+            heroName.style.textShadow = "0 0 12px rgba(33, 199, 61, 0.6), 0 2px 4px #000";
+            heroAttackSpeed = 1000;
             heroHp = 7;
+            heroDamage = 10;
             nextHero++;
         break;
         case 5:
             player.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroUi.style.background = "url('images/hero.svg') center / contain no-repeat";
             heroName.textContent = "Cipher";
+            heroName.style.color = "#7ff3ff";
+            heroName.style.textShadow = "0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000";
+            heroAttackSpeed = 500;
             heroHp = 0;
             nextHero = 1;
         break;

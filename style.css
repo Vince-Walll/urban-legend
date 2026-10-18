@@ -62,9 +62,14 @@ body{
 .bullet{
     width: 10px;
     height: 20px;
-    background: blue;
     position: absolute;
     transform: translateX(-50%);
+}
+.crizel{
+    background: url('images/bullet-pink.svg') center / contain no-repeat;
+}
+.cipher{
+    background: url('images/bullet.svg') center / contain no-repeat;
 }
 .enemy{
     width: 50px;

@@ -22,17 +22,14 @@ function explode(enemy) {
     anim.onfinish = () => boom.remove();
 }
 
-
-
-
 function attacking(){
         playShoot();
         const newBullet = document.createElement("div");
         newBullet.classList.add("bullet");
+        newBullet.classList.add(heroBullet);
         box.appendChild(newBullet);
         newBullet.style.left = player.offsetLeft + (player.offsetWidth / 2) + "px";
         newBullet.style.top = player.offsetTop + player.offsetHeight + "px";
-        newBullet.style.background = pink? "url('images/bullet-pink.svg') center / contain no-repeat": "url('images/bullet.svg') center / contain no-repeat";
         const anim = newBullet.animate(
             [
                 { top: player.offsetTop + player.offsetHeight + "px" },
@@ -85,12 +82,6 @@ function attacking(){
 
     }
 
-
-
-
-
-
-
 function start(){
     if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
     if(waves !== null) return;
@@ -100,6 +91,7 @@ function start(){
 
     currentScore = 0;
     currentTime = 0;
+    enemyCount = 0;
 
     currentHp = heroHp + currentAcc["accHp"];
     damage = heroDamage;
@@ -119,10 +111,10 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
-        if(enemyCount > 10){
-            newEnemy.style.background = enemyCount > 20? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 20? 50 : 30;
-            enemyPoints = enemyCount > 20? 20: 10;
+        if(enemyCount > 30){
+            newEnemy.style.background = enemyCount > 50? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
+            enemyHp = enemyCount > 100? 200 : 50;
+            enemyPoints = enemyCount > 50? 20: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -153,7 +145,6 @@ function start(){
                     updateGame();
                     wipeOut(enemies);
                     enemies.length = 0;
-                    enemyCount = 0;
                 }, 3000);
             }
 
@@ -216,12 +207,12 @@ function start(){
                 clearInterval(playerBuff);
                 newOrb.remove();
             }
+        }, 16);
 
-            newOrb.addEventListener("animationend", () => {
+        newOrb.addEventListener("animationend", () => {
                 clearInterval(playerBuff);
                 newOrb.remove;
             });
-        }, 16);
 
     }, 5000);
 }
