@@ -121,8 +121,8 @@ function start(){
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
         if(enemyCount > 10){
             newEnemy.style.background = enemyCount > 20? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 20? 30 : 20;
-            enemyPoints = enemyCount > 20? 15: 10;
+            enemyHp = enemyCount > 20? 50 : 30;
+            enemyPoints = enemyCount > 20? 20: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -165,7 +165,7 @@ function start(){
             newEnemy.remove();
         });
     
-    }, 500);//gameSpeed - (gameLevel * 1000));
+    }, 400);//gameSpeed - (gameLevel * 1000));
 
     attack = setInterval(attacking, attackSpeed);
 
@@ -223,7 +223,7 @@ function start(){
             });
         }, 16);
 
-    }, 1000);
+    }, 10000);
 }
 
 function stop(){
