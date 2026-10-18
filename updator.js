@@ -46,7 +46,7 @@ heroesChanger.addEventListener("click", () => {
             heroBullet = "crizel";
             pink = true;
             heroHp = -1;
-            heroAttackSpeed = 200;
+            heroAttackSpeed = 250;
             heroDamage = 2;
             nextHero++;
         break;
