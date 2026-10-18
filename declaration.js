@@ -42,6 +42,7 @@ let attackSpeed = heroAttackSpeed;
 let damage = heroDamage;
 let heroHp = 0;
 let heroBullet = "cipher";
+let explosionOrb = false;
 
 
 let currentScore = 0;
@@ -57,6 +58,7 @@ let waves = null;
 let attack = null;
 let timer = null;
 let orbs = null;
+let specialOrbs = null;
 
 //Responsive part
 const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: landscape)");

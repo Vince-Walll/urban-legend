@@ -98,6 +98,8 @@ function start(){
     damage = heroDamage;
     attackSpeed = heroAttackSpeed;
 
+    explosionOrb = false;
+
     scores.textContent = currentScore;
     hp.textContent = currentHp;
     time.textContent = currentTime;
@@ -115,7 +117,7 @@ function start(){
         if(enemyCount > 50){
             newEnemy.style.background = enemyCount > 50? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
             enemyHp = enemyCount > 150? 1000 : 100;
-            enemyPoints = enemyCount > 150? 20: 10;
+            enemyPoints = enemyCount > 150? 50: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -148,6 +150,13 @@ function start(){
                         home.classList.remove("hidden");
                         box.classList.add("hidden");
                     }, 3000);
+                }
+                clearInterval(playerHit);
+                if(explosionOrb){
+                    currentScore += (enemies.length * enemyPoints);
+                    updateScore();
+                    wipeOut(enemies);
+                    enemies.length = 0;
                 }
             }   
         }, 16);
@@ -224,6 +233,36 @@ function start(){
         });
 
     }, 5000);
+
+    specialOrbs = setInterval(function(){
+        if(currentHp <= 0) return;
+        const specialOrb = document.createElement("div");
+        specialOrb.classList.add("orb");
+        specialOrb.style.background = "url('images/orb-bomb.svg') center / contain no-repeat";
+        box.appendChild(specialOrb);
+        specialOrb.style.left = Math.random() * (box.clientWidth - specialOrb.offsetWidth) + "px";
+
+        let alreadySpecialBuff = false;
+
+        const playerSpecialBuff = setInterval(function(){
+            const p = player.getBoundingClientRect();
+            const s = specialOrb.getBoundingClientRect();
+
+            if(!alreadySpecialBuff && p.left < s.right && p.right > s.left && p.top < s.bottom && p.bottom > s.top){
+                alreadySpecialBuff = true;
+                explosionOrb = true;
+                clearInterval(playerSpecialBuff);
+                specialOrb.remove();
+            }
+
+            specialOrb.addEventListener("animationend", () => {
+                clearInterval(playerSpecialBuff);
+                specialOrb.remove();
+            });
+
+        }, 16);
+
+    }, 20000);
 }
 
 function stop(){
@@ -232,10 +271,12 @@ function stop(){
     clearInterval(waves);
     clearInterval(attack);
     clearInterval(orbs);
+    clearInterval(specialOrbs);
     waves = null;
     attack = null;
     timer = null;
     orbs = null;
+    specialOrbs = null;
 }
 
 function wipeOut(list){
