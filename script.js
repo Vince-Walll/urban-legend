@@ -138,16 +138,14 @@ function start(){
 
             if(currentHp <= 0){
                 stop();
-                const gameOver = setTimeout(() => {
-                    home.classList.remove("hidden");
-                    box.classList.add("hidden");
-                    currentHp = currentAcc["accHp"];
-                    updateGame();
+                updateGame();
+                setTimeout(() => {
                     wipeOut(enemies);
                     enemies.length = 0;
+                    home.classList.remove("hidden");
+                    box.classList.add("hidden");
                 }, 3000);
             }
-
         }, 16);
 
         newEnemy.addEventListener("animationend", () => {
@@ -156,11 +154,12 @@ function start(){
             newEnemy.remove();
         });
     
-    }, 400);//gameSpeed - (gameLevel * 1000));
+    }, 400);
 
     attack = setInterval(attacking, attackSpeed);
 
     orbs = setInterval(function(){
+        if(currentHp <= 0) return;
         const newOrb = document.createElement("div");
         newOrb.classList.add("orb");
         let rand = Math.ceil(Math.random() * 3);
@@ -207,12 +206,17 @@ function start(){
                 clearInterval(playerBuff);
                 newOrb.remove();
             }
+            
+            if(currentHp <= 0){
+                clearInterval(playerBuff);
+                newOrb.remove();
+            }
         }, 16);
 
         newOrb.addEventListener("animationend", () => {
-                clearInterval(playerBuff);
-                newOrb.remove;
-            });
+            clearInterval(playerBuff);
+            newOrb.remove;
+        });
 
     }, 5000);
 }

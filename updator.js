@@ -22,7 +22,6 @@ function updateGame(){
     }else{
         currentTime = 0;
     }
-    currentHp = currentAcc["accHp"];
 
     const accounts = JSON.parse(localStorage.getItem("Accounts")) || [];
     const accIndex = accounts.findIndex(acc => acc["name"] === currentAcc["name"] && acc["password"] === currentAcc["password"]);
@@ -31,7 +30,6 @@ function updateGame(){
     localStorage.setItem("Accounts", JSON.stringify(accounts));
 
     displayScore.textContent = currentAcc["accScore"];
-
     const m = Math.floor(currentAcc["accTime"] / 60);
     const s = currentAcc["accTime"] % 60;
     displayTime.textContent = m + ":" + String(s).padStart(2, "0");
