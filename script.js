@@ -112,10 +112,10 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
-        if(enemyCount > 30){
+        if(enemyCount > 50){
             newEnemy.style.background = enemyCount > 50? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 100? 500 : 50;
-            enemyPoints = enemyCount > 100? 20: 10;
+            enemyHp = enemyCount > 150? 1000 : 100;
+            enemyPoints = enemyCount > 150? 20: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
@@ -199,7 +199,7 @@ function start(){
                     break;
                     case 3:
                         if(attackSpeed >= 100){
-                            attackSpeed -= 25;
+                            attackSpeed -= 20;
                             clearInterval(attack);
                             attack = setInterval(attacking, attackSpeed);
                         }else{
