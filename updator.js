@@ -80,7 +80,7 @@ heroesChanger.addEventListener("click", () => {
             heroName.textContent = "Warden";
             heroName.style.color = "#18ad5b";
             heroName.style.textShadow = "0 0 12px rgba(33, 199, 61, 0.6), 0 2px 4px #000";
-            heroAttackSpeed = 1000;
+            heroAttackSpeed = 700;
             heroHp = 7;
             heroDamage = 10;
             nextHero++;
