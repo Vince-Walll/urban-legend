@@ -9,7 +9,7 @@
 </head>
 <body>
     <div id="logInPage" class="w-full h-[100dvh] bg-black flex justify-center items-center">
-        <div id="card" class="w-[300px] bg-white flex flex-col border border-black rounded-lg p-5 gap-2">
+        <div id="card" class="w-[300px] bg-[rgba(8, 10, 28, 0.75)] flex flex-col border border-[rgba(127, 243, 255, 0.35)] rounded-lg p-5 gap-2">
             <h1 class="text-center text-[30px] font-bold">Urban Legend</h1>
             <form id="logInForm" class="flex flex-col gap-4">
                 <div>
@@ -27,7 +27,7 @@
     </div>
 
     <div id="createAccPage" class="w-full h-[100dvh] bg-black flex justify-center items-center hidden">
-        <div id="card2" class="w-[300px] bg-white flex flex-col border border-black rounded-lg p-5 gap-1">
+        <div id="card2" class="w-[300px] bg-[rgba(8, 10, 28, 0.75)]  flex flex-col border border-[rgba(127, 243, 255, 0.35)] rounded-lg p-5 gap-1">
             <h1 class="text-center text-[30px] font-bold">Create Account</h1>
             <form id="createForm" class="flex flex-col gap-4">
                 <div>
@@ -55,8 +55,8 @@
             <button type="button" id="heroesChanger" class="w-[50px] h-[50px] rounded-full border border-black">Heroes</button>
         </div> 
         <div class="w-full h-[50dvh] flex flex-col justify-between items-end p-[20px]">
-            <button id="gold" class="w-[30px] h-[100px] border border-black">$1000</button>
-            <div id="heroName" class="text-[40px] font-bold text-blue-700">Cipher</div>
+            <button id="gold" class="w-[30px] h-[100px] font-[700] text-[#ffd23f] border border-black">$1000</button>
+            <div id="heroName" class="text-[40px] font-[700] text-[#7ff3ff]">Cipher</div>
             <button type="button" class="w-[60px] h-[60px] rounded-full border border-black">Leader Boards</button>
             <div class="disScores w-[25%] h-[90%] border border-black flex justify-evenly text-center">
                 <div class="w-[100%] h-[50%] flex flex-col justify-center">
@@ -68,7 +68,7 @@
                     <div>Longest Time</div>
                 </div>
             </div>
-            <button type="button" id="start" class="w-[50px] h-[60%] border border-black">challenge</button>
+            <button type="button" id="start" class="w-[50px] h-[60%] bg-[#7ff3ff] text-[#0e1126] font-[700] border border-black">challenge</button>
         </div>
     </div>
 
@@ -80,13 +80,13 @@
             </div>
             <div class="w-full h-[30dvh] flex flex-col justify-between">
                 <div class="flex flex-col gap-2 h-[100%]">
-                    <button id="scores" class="text-right pb-[5px] border border-black">0</button>
+                    <button id="scores" class="text-right pb-[5px] text-[#ffd23f] text-[1.2rem] border border-black">0</button>
                     <div class="flex h-[100%] gap-2">
-                        <button id="hp" class="w-[30px] h-[50%] border border-black text-left pt-[5px]">3</button>
-                        <button id="time" class="w-[30px] h-[50%] border border-black text-left pt-[5px]">0</button>
+                        <button id="hp" class="w-[30px] h-[50%] text-[#ff6b6b] border border-black text-left pt-[5px]">3</button>
+                        <button id="time" class="w-[30px] text-[#7ff3ff] h-[50%] border border-black text-left pt-[5px]">0</button>
                     </div>
                 </div>
-                <button type="button" id="ultimate" class="w-[100px] h-[100px] rounded-full border border-black mb-auto mt-auto">Ult</button>
+                <button type="button" id="ultimate" class="w-[100px] h-[100px] rounded-full border-[2px] border-solid border-[#7ff3ff] text-[#fff] mb-auto mt-auto">Ult</button>
             </div>
         </div>
     </div>

@@ -26,6 +26,9 @@ const time = document.getElementById("time");
 const heroesChanger = document.getElementById("heroesChanger");
 const heroUi = document.getElementById("heroUi");
 const heroName = document.getElementById("heroName");
+const joyStick = document.getElementById("joyStick");
+let nextHero = 1;
+
 let enemyCount = 1;
 let pink = false;
 let touchX, touchY, playerX, playerY;
@@ -42,27 +45,19 @@ let waves = null;
 let attack = null;
 let timer = null;
 
-//tester
-const joyStick = document.getElementById("joyStick");
-
-//Responsive
+//Responsive part
 const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: landscape)");
 let rotated = desktopQuery.matches;
 desktopQuery.addEventListener("change", e => rotated = e.matches);
-
 
 const bgm = new Audio("sounds/bgm.wav");
 bgm.loop = true;
 bgm.volume = 0.35;
 
-// small pools so rapid sounds can overlap
 const shootPool = Array.from({ length: 4 }, () => new Audio("sounds/shoot.wav"));
 const boomPool  = Array.from({ length: 4 }, () => new Audio("sounds/explosion.wav"));
 let shootI = 0, boomI = 0;
 let soundOn = true;
-
-
-
 
 function playShoot() {
     if (!soundOn) return;
@@ -71,7 +66,6 @@ function playShoot() {
     a.volume = 0.25;
     a.play().catch(() => {});
 }
-
 function playBoom() {
     if (!soundOn) return;
     const a = boomPool[boomI++ % boomPool.length];
@@ -79,7 +73,6 @@ function playBoom() {
     a.volume = 0.5;
     a.play().catch(() => {});
 }
-
 function unlockAudio() {
     [...shootPool, ...boomPool].forEach(a => {
         a.muted = true;

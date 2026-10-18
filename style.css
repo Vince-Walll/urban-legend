@@ -10,13 +10,10 @@ body{
     justify-content: center;
     align-items: center;
 }
-
-
 #home {
     background: url("images/home-bg-desktop.svg") center / cover no-repeat;
     color: #fff;
 }
-
 .hero{
     background: url("images/hero.svg") center / contain no-repeat;
 }
@@ -24,34 +21,26 @@ body{
     color: #fff;
     border-color: #fff;
 }
-
-
 .vertical, .battleUi{
     writing-mode: vertical-rl;
 }
 .box{
-
     width: 100%;
     height: 100dvh;
     background: url("images/battle-bg.svg") center top / 400px 400px repeat;
     border: solid 1px black;
     position: relative;
     overflow: hidden;
-
-
-
-    
     animation: scrollBackground 4s linear infinite;
 }
-
 @keyframes scrollBackground {
-    from { background-position: center 0; }
-    to   { background-position: center -400px; }
+    from{ 
+        background-position: center 0; 
+    }
+    to{ 
+        background-position: center -400px; 
+    }
 }
-
-
-
-
 .joyStick{
     touch-action: none;
     user-select: none;
@@ -59,6 +48,7 @@ body{
 .player{
     width: 50px;
     height: 50px;
+    background: url("images/hero.svg") center / contain no-repeat;
     position: absolute;
     top: 20px;
     left: calc(50% - 25px);
@@ -67,8 +57,6 @@ body{
 .bullet{
     width: 10px;
     height: 20px;
-    border-bottom-left-radius: 10px;
-    border-bottom-right-radius: 10px;
     background: blue;
     position: absolute;
     transform: translateX(-50%);
@@ -76,13 +64,11 @@ body{
 .enemy{
     width: 50px;
     height: 50px;
+    background: url('images/enemy.svg') center / contain no-repeat;
     position: absolute;
     top: 80%;
     animation: moving 5s linear 1;
 }
-
-
-
 @keyframes moving{
     from{
         top: 100%;
@@ -91,7 +77,6 @@ body{
         top: -100px;
     }
 }
-
 @media (min-width: 800px) and (orientation: landscape) {
     body {
         background: #111;
@@ -107,39 +92,20 @@ body{
         background-image: url("images/home-bg-desktop.svg");
     }
 }
-
-
-
-
-
-
-
-
-.explosion {
+.explosion{
     position: absolute;
     width: 50px;
     height: 50px;
     background: url("images/explosion.svg") center / contain no-repeat;
     pointer-events: none;
 }
-.player{
-    background: url("images/hero.svg") center / contain no-repeat;
+.hit{
+    filter: brightness(2) saturate(2) hue-rotate(-40deg); 
 }
-.enemy{
-    background: url('images/enemy.svg') center / contain no-repeat;
-    border: none;
-}
-.bullet{
-    border-radius: 0;
-}
-
-.hit { filter: brightness(2) saturate(2) hue-rotate(-40deg); }
-
 #home button,
 #home div {
     border-color: rgba(255, 255, 255, 0.6);
 }
-
 #home button, #home .disScores{
     color: #fff;
     background: rgba(8, 10, 28, 0.65);
@@ -152,28 +118,9 @@ body{
 #home button:hover {
     background: rgba(40, 50, 110, 0.75);
 }
-#home button:active {
-    transform: scale(0.96);
-}
-
 #home #heroName {
-    color: #7ff3ff;
-    font-weight: 700;
     letter-spacing: 0.05em;
-    border: none;
     text-shadow: 0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000;
-}
-
-#home #gold {
-    color: #ffd23f;
-    font-weight: 700;
-}
-
-#home #start {
-    background: #7ff3ff;
-    color: #0e1126;
-    font-weight: 700;
-    text-shadow: none;
 }
 #home #start:hover {
     background: #b8f8ff;
@@ -191,41 +138,22 @@ body{
 #scores, #hp, #time {
     pointer-events: none;
 }
-
-#scores {
-    color: #ffd23f;
-    font-size: 1.2rem;
-}
-#hp {
-    color: #ff6b6b;
-}
 #hp::before {
     content: "♥ ";
 }
-#time {
-    color: #7ff3ff;
-}
-
 #ultimate {
     background: radial-gradient(circle, rgba(127, 243, 255, 0.35), rgba(8, 10, 28, 0.7));
-    border: 2px solid #7ff3ff;
-    color: #fff;
     box-shadow: 0 0 14px rgba(127, 243, 255, 0.55);
 }
 #ultimate:active {
-    transform: scale(0.94);
+    transform: scale(0.90);
 }
-
 #logInPage, #createAccPage {
     background: #0e1126 url("images/login-bg.svg") center bottom / cover no-repeat;
 }
-
 #card, #card2 {
-    background: rgba(8, 10, 28, 0.75);
     backdrop-filter: blur(6px);
-    border: 1px solid rgba(127, 243, 255, 0.35);
     box-shadow: 0 0 30px rgba(127, 243, 255, 0.15), 0 10px 40px rgba(0, 0, 0, 0.6);
-    color: #fff;
 }
 
 #card h1, #card2 h1 {
@@ -233,7 +161,6 @@ body{
     letter-spacing: 0.04em;
     text-shadow: 0 0 14px rgba(127, 243, 255, 0.55), 0 2px 4px #000;
 }
-
 #card label, #card2 label {
     color: #cfe9ff;
     font-size: 0.9rem;
@@ -241,7 +168,6 @@ body{
 #card p, #card2 p {
     color: #cfe9ff;
 }
-
 #card input, #card2 input {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.35);
@@ -257,7 +183,6 @@ body{
     border-color: #7ff3ff;
     box-shadow: 0 0 0 3px rgba(127, 243, 255, 0.25);
 }
-
 #card input:-webkit-autofill, #card2 input:-webkit-autofill {
     -webkit-text-fill-color: #fff;
     box-shadow: 0 0 0 100px #14172f inset;
@@ -278,7 +203,6 @@ body{
 #logIn:active, #create:active {
     transform: scale(0.97);
 }
-
 #goToCreate, #goToLogIn {
     color: #7ff3ff;
     font-weight: 600;
