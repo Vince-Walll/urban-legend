@@ -16,6 +16,11 @@ body{
 }
 .hero{
     background: url("images/hero.svg") center / contain no-repeat;
+    animation: breathe 3s ease-in-out infinite;
+}
+@keyframes breathe {
+    0%, 100% { translate: 0 0 }
+    50%      { translate: 20px 0 }
 }
 .box button {
     color: #fff;
@@ -87,9 +92,6 @@ body{
         margin: 0 auto;
         border: 1px solid #555;
         transform: rotate(-90deg);
-    }
-    #home{
-        background-image: url("images/home-bg-desktop.svg");
     }
 }
 .explosion{

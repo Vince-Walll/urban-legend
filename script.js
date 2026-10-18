@@ -5,9 +5,6 @@ startGame.onclick = () => {
     start();
 };
 
-
-
-
 function explode(enemy) {
     const boom = document.createElement("div");
     boom.classList.add("explosion");
@@ -24,9 +21,6 @@ function explode(enemy) {
     );
     anim.onfinish = () => boom.remove();
 }
-
-
-
 
 function start(){
     if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
@@ -181,6 +175,7 @@ ultimate.addEventListener("click", () => {
     playBoom();
     wipeOut(enemies);
     currentScore += (enemies.length * enemyPoints);
+    enemyCount += enemies.length;
     updateScore();
     enemies.length = 0;
 });
