@@ -53,7 +53,9 @@ function attacking(){
                 const et = enemy.offsetTop;
                 const ew = enemy.offsetWidth;
                 const eh = enemy.offsetHeight;
-                if (bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
+                let dmDeal = false;
+                if (!dmDeal && bl < el + ew && bl + bw > el && bt < et + eh && bt + bh > et) {
+                    dmDeal = true;
                     enemy.hp -= damage;
                     enemy.classList.add("hit");
                     setTimeout(() => {
@@ -80,7 +82,6 @@ function attacking(){
             clearInterval(hit);
             newBullet.remove(); 
         };
-
     }
 
 function start(){
@@ -115,10 +116,10 @@ function start(){
         newEnemy.classList.add("enemy");
         box.appendChild(newEnemy);
         newEnemy.style.left = Math.random() * (box.clientWidth - newEnemy.offsetWidth) + "px";
-        if(enemyCount > 50){
-            newEnemy.style.background = enemyCount > 200? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
-            enemyHp = enemyCount > 200? 1000 : 100;
-            enemyPoints = enemyCount > 200? 100: 10;
+        if(enemyCount > 100){
+            newEnemy.style.background = enemyCount > 300? "url('images/enemy-boss.svg') center / contain no-repeat": "url('images/enemy-bat.svg') center / contain no-repeat";
+            enemyHp = enemyCount > 300? 1000 : 100;
+            enemyPoints = enemyCount > 300? 100: 10;
         }
         enemies.push(newEnemy);
         newEnemy.hp = enemyHp;
