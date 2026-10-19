@@ -99,5 +99,10 @@
     <script src="javascript/logIn.js"></script>
     <script src="javascript/script.js"></script>
     <script src="javascript/movement.js"></script>
+    <script>
+        if ("serviceWorker" in navigator) {
+            navigator.serviceWorker.register("sw.js");
+        }
+    </script>
 </body>
 </html>
