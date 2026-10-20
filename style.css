@@ -14,6 +14,30 @@ body{
     background: url("images/home-bg-desktop.svg") center / cover no-repeat;
     color: #fff;
 }
+#logOut{
+    width: 30px;
+    height: 40px;
+    background: url("images/ui/icon-logout.svg") center / cover no-repeat;
+    transform: rotate(-90deg);
+    margin-top: -15px;
+    margin-right: -5px;
+}
+#gold{
+    width: 35px;
+    height: 120px;
+    background: url("images/ui/gold-slot-v.svg") center / cover no-repeat;
+}
+#leaderBoards{
+    width: 60px;
+    height: 60px;
+    background: url("images/ui/icon-leaderboard.svg") center / cover no-repeat;
+    transform: rotate(90deg);
+}
+#start{
+    width: 50px;
+    height: 60%;
+    background: url("images/ui/btn-start-v.svg") center / cover no-repeat;
+}
 .hero{
     background: url("images/hero.svg") center / contain no-repeat;
     animation: breathe 3s ease-in-out infinite;
@@ -143,9 +167,6 @@ body{
 #home #heroName {
     letter-spacing: 0.05em;
     text-shadow: 0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000;
-}
-#home #start:hover {
-    background: #b8f8ff;
 }
 
 #box button {
