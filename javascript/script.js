@@ -85,7 +85,10 @@ function attacking(){
     }
 
 function start(){
-    if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {}); }
+    if (soundOn) { bgm.currentTime = 0; bgm.play().catch(() => {})};
+    multo.pause();
+    
+
     if(waves !== null) return;
 
     player.style.top = "20px";
@@ -151,6 +154,18 @@ function start(){
                         enemies.length = 0;
                         home.classList.remove("hidden");
                         box.classList.add("hidden");
+
+
+
+
+
+                        if (soundOn) { multo.currentTime = 0; multo.play().catch(() => {}); } 
+
+
+
+
+
+
                     }, 3000);
                 }
                 clearInterval(playerHit);

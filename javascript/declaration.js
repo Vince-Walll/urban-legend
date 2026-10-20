@@ -66,6 +66,15 @@ const desktopQuery = window.matchMedia("(min-width: 800px) and (orientation: lan
 let rotated = desktopQuery.matches;
 desktopQuery.addEventListener("change", e => rotated = e.matches);
 
+
+
+const multo = new Audio("sounds/multo.wav");
+multo.loop = true;
+multo.volume = 0.35;
+
+
+
+
 const bgm = new Audio("sounds/bgm.wav");
 bgm.loop = true;
 bgm.volume = 0.35;

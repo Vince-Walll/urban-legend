@@ -23,6 +23,17 @@ logInForm.addEventListener("submit", (e) => {
         window.alert("Welcome " + currentAcc["name"]);
         logInPage.classList.add("hidden");
         home.classList.remove("hidden");
+
+
+
+
+
+        if (soundOn) { multo.currentTime = 0; multo.play().catch(() => {}); }   
+
+
+
+
+
     }else{
         window.alert("Wrong Name or Password!");
     }
