@@ -1,20 +1,25 @@
-*{
+@import "tailwindcss";
+
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     width: 100%;
     height: 100dvh;
     display: flex;
     justify-content: center;
     align-items: center;
 }
+
 #home {
     background: url("images/home-bg-desktop.svg") center / cover no-repeat;
     color: #fff;
 }
-#logOut{
+
+#logOut {
     width: 30px;
     height: 40px;
     background: url("images/ui/icon-logout.svg") center / cover no-repeat;
@@ -22,41 +27,58 @@ body{
     margin-top: -15px;
     margin-right: -5px;
 }
-#gold{
+
+#gold {
     width: 35px;
     height: 120px;
     background: url("images/ui/gold-slot-v.svg") center / cover no-repeat;
 }
-#leaderBoards{
+
+#leaderBoards {
     width: 60px;
     height: 60px;
     background: url("images/ui/icon-leaderboard.svg") center / cover no-repeat;
     transform: rotate(90deg);
 }
-#disScores{
-    background: url("images/ui/stats-panel.svg") center / cover no-repeat; 
+
+#disScores {
+    background: url("images/ui/stats-panel.svg") center / cover no-repeat;
 }
-#start{
+
+#start {
     width: 50px;
     height: 60%;
     background: url("images/ui/btn-start-v.svg") center / cover no-repeat;
 }
-.hero{
+
+.hero {
     background: url("images/hero.svg") center / contain no-repeat;
     animation: breathe 3s ease-in-out infinite;
 }
+
 @keyframes breathe {
-    0%, 100% { translate: 0 0 }
-    50%      { translate: 20px 0 }
+
+    0%,
+    100% {
+        translate: 0 0
+    }
+
+    50% {
+        translate: 20px 0
+    }
 }
+
 .box button {
     color: #fff;
     border-color: #fff;
 }
-.vertical, .battleUi{
+
+.vertical,
+.battleUi {
     writing-mode: vertical-rl;
 }
-.box{
+
+.box {
     width: 100%;
     height: 100dvh;
     background: url("images/battle-bg.svg") center top / 400px 400px repeat;
@@ -65,19 +87,23 @@ body{
     overflow: hidden;
     animation: scrollBackground 4s linear infinite;
 }
+
 @keyframes scrollBackground {
-    from{ 
-        background-position: center 0; 
+    from {
+        background-position: center 0;
     }
-    to{ 
-        background-position: center -400px; 
+
+    to {
+        background-position: center -400px;
     }
 }
-.joyStick{
+
+.joyStick {
     touch-action: none;
     user-select: none;
 }
-.player{
+
+.player {
     width: 30px;
     height: 30px;
     position: absolute;
@@ -85,6 +111,7 @@ body{
     left: calc(50% - 15px);
     transition: left 0.1s, top 0.1s;
 }
+
 .appearance {
     width: 60px;
     height: 60px;
@@ -95,19 +122,23 @@ body{
     background: url("images/hero.svg") center / contain no-repeat;
     pointer-events: none;
 }
-.bullet{
+
+.bullet {
     width: 10px;
     height: 20px;
     position: absolute;
     transform: translateX(-50%);
 }
-.crizel{
+
+.crizel {
     background: url('images/bullet-pink.svg') center / contain no-repeat;
 }
-.cipher{
+
+.cipher {
     background: url('images/bullet.svg') center / contain no-repeat;
 }
-.enemy{
+
+.enemy {
     width: 50px;
     height: 50px;
     background: url('images/enemy.svg') center / contain no-repeat;
@@ -115,26 +146,32 @@ body{
     top: 100%;
     animation: moving 5s linear 1;
 }
-.orb{
+
+.orb {
     width: 50px;
     height: 50px;
     position: absolute;
     top: 100%;
     animation: moving 3s linear 1;
 }
-@keyframes moving{
-    from{
+
+@keyframes moving {
+    from {
         top: 100%;
     }
-    to{
+
+    to {
         top: -100px;
     }
 }
+
 @media (min-width: 800px) and (orientation: landscape) {
     body {
         background: #111;
     }
-    #home, #box {
+
+    #home,
+    #box {
         width: 350px;
         height: 100dvh;
         margin: 0 auto;
@@ -142,20 +179,25 @@ body{
         transform: rotate(-90deg);
     }
 }
-.explosion{
+
+.explosion {
     position: absolute;
     width: 50px;
     height: 50px;
     pointer-events: none;
 }
-.hit{
-    filter: brightness(2) saturate(2) hue-rotate(-40deg); 
+
+.hit {
+    filter: brightness(2) saturate(2) hue-rotate(-40deg);
 }
+
 #home button,
 #home div {
     border-color: rgba(255, 255, 255, 0.6);
 }
-#home button, #home .disScores{
+
+#home button,
+#home .disScores {
     color: #fff;
     background: rgba(8, 10, 28, 0.65);
     border: 1px solid rgba(255, 255, 255, 0.55);
@@ -164,9 +206,11 @@ body{
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
 }
+
 #home button:hover {
     background: rgba(40, 50, 110, 0.75);
 }
+
 #home #heroName {
     letter-spacing: 0.05em;
     text-shadow: 0 0 12px rgba(127, 243, 255, 0.6), 0 2px 4px #000;
@@ -180,42 +224,59 @@ body{
     font-weight: 700;
     user-select: none;
 }
-#scores, #hp, #time {
+
+#scores,
+#hp,
+#time {
     pointer-events: none;
 }
+
 #hp::before {
     content: "♥ ";
 }
+
 #ultimate {
     background: radial-gradient(circle, rgba(127, 243, 255, 0.35), rgba(8, 10, 28, 0.7));
     box-shadow: 0 0 14px rgba(127, 243, 255, 0.55);
 }
+
 #ultimate:active {
     transform: scale(0.90);
 }
-#logInPage, #createAccPage {
+
+#logInPage,
+#createAccPage {
     background: #0e1126 url("images/login-bg.svg") center bottom / cover no-repeat;
 }
-#card, #card2 {
+
+#card,
+#card2 {
     backdrop-filter: blur(6px);
     box-shadow: 0 0 30px rgba(127, 243, 255, 0.15), 0 10px 40px rgba(0, 0, 0, 0.6);
     background: rgba(8, 10, 28, 0.75);
     border: 1px solid rgba(127, 243, 255, 0.35);
 }
 
-#card h1, #card2 h1 {
+#card h1,
+#card2 h1 {
     color: #7ff3ff;
     letter-spacing: 0.04em;
     text-shadow: 0 0 14px rgba(127, 243, 255, 0.55), 0 2px 4px #000;
 }
-#card label, #card2 label {
+
+#card label,
+#card2 label {
     color: #cfe9ff;
     font-size: 0.9rem;
 }
-#card p, #card2 p {
+
+#card p,
+#card2 p {
     color: #cfe9ff;
 }
-#card input, #card2 input {
+
+#card input,
+#card2 input {
     background: rgba(255, 255, 255, 0.08);
     border: 1px solid rgba(255, 255, 255, 0.35);
     color: #fff;
@@ -223,19 +284,26 @@ body{
     outline: none;
     transition: border-color 0.15s, box-shadow 0.15s;
 }
-#card input::placeholder, #card2 input::placeholder {
+
+#card input::placeholder,
+#card2 input::placeholder {
     color: rgba(255, 255, 255, 0.45);
 }
-#card input:focus, #card2 input:focus {
+
+#card input:focus,
+#card2 input:focus {
     border-color: #7ff3ff;
     box-shadow: 0 0 0 3px rgba(127, 243, 255, 0.25);
 }
-#card input:-webkit-autofill, #card2 input:-webkit-autofill {
+
+#card input:-webkit-autofill,
+#card2 input:-webkit-autofill {
     -webkit-text-fill-color: #fff;
     box-shadow: 0 0 0 100px #14172f inset;
 }
 
-#logIn, #create {
+#logIn,
+#create {
     background: #7ff3ff;
     color: #0e1126;
     font-weight: 700;
@@ -244,17 +312,25 @@ body{
     cursor: pointer;
     transition: background 0.15s, transform 0.1s;
 }
-#logIn:hover, #create:hover {
+
+#logIn:hover,
+#create:hover {
     background: #b8f8ff;
 }
-#logIn:active, #create:active {
+
+#logIn:active,
+#create:active {
     transform: scale(0.97);
 }
-#goToCreate, #goToLogIn {
+
+#goToCreate,
+#goToLogIn {
     color: #7ff3ff;
     font-weight: 600;
     cursor: pointer;
 }
-#goToCreate:hover, #goToLogIn:hover {
+
+#goToCreate:hover,
+#goToLogIn:hover {
     text-decoration: underline;
 }

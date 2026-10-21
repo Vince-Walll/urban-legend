@@ -1,0 +1,1 @@
+tailwindcss.exe -i ./style.css -o ./dist/output.css --watch
