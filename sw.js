@@ -1,4 +1,4 @@
-const CACHE = "urban-legend-v1";
+const CACHE = "urban-legend-v2";
 
 const FILES = [
     "./", "index.html", "style.css", "manifest.json",
@@ -12,7 +12,7 @@ const FILES = [
     "images/orb-heal.svg", "images/orb-power.svg", "images/orb-speed.svg", "images/orb-bomb.svg",
     "images/battle-bg.svg", "images/home-bg.svg", "images/home-bg-desktop.svg", "images/login-bg.svg",
     "sounds/bgm.wav", "sounds/shoot.wav", "sounds/explosion.wav",
-    "sounds/shoot-crizel.wav", "sounds/explosion-crizel.wav"
+    "sounds/shoot-crizel.wav", "sounds/explosion-crizel.wav", "sounds/multo.wav"
 ];
 
 self.addEventListener("install", e => {
