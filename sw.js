@@ -30,5 +30,11 @@ self.addEventListener("activate", e => {
 });
 
 self.addEventListener("fetch", e => {
-    e.respondWith(caches.match(e.request).then(hit => hit || fetch(e.request)));
+    e.respondWith(
+        caches.match(e.request).then(hit => {
+            return hit || fetch(e.request).catch(() => {
+                return caches.match("index.html") || caches.match("./");
+            });
+        })
+    );
 });
